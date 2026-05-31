@@ -1,6 +1,6 @@
 # taskflow
 
-A task management dashboard for the tech industry. Users can sign up, log in and manage their tasks including creating, editing, deleting and filtering by status.
+A task management dashboard for tracking and managing your daily work. Users can sign up, log in and manage their tasks including creating, editing, deleting and filtering by status.
 
 > Currently in development — launching Q3 2026
 
