@@ -5,36 +5,36 @@ export default function RegisterPage() {
         <h1 className="text-lg font-medium text-[#e8eaf6] mb-1">
           Create an account
         </h1>
-        <p className="text-sm text-[#6b7a99] mb-6">Sign up to get started</p>
+        <p className="text-sm text-[#a0aec0] mb-6">Sign up to get started</p>
 
         <div className="mb-4">
-          <label className="text-xs text-[#6b7a99] block mb-2">Name</label>
+          <label className="text-xs text-[#a0aec0] block mb-2">Name</label>
           <input
             type="text"
             placeholder="Your name"
-            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#5b6ef5]"
+            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#38bdf8]"
           />
         </div>
 
         <div className="mb-4">
-          <label className="text-xs text-[#6b7a99] block mb-2">Email</label>
+          <label className="text-xs text-[#a0aec0] block mb-2">Email</label>
           <input
             type="email"
             placeholder="you@example.com"
-            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#5b6ef5]"
+            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#38bdf8]"
           />
         </div>
 
         <div className="mb-6">
-          <label className="text-xs text-[#6b7a99] block mb-2">Password</label>
+          <label className="text-xs text-[#a0aec0] block mb-2">Password</label>
           <input
             type="password"
             placeholder="••••••••"
-            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#5b6ef5]"
+            className="w-full bg-[#0f1629] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#3d4f6e] outline-none focus:border-[#38bdf8]"
           />
         </div>
 
-        <button className="w-full bg-[#5b6ef5] hover:bg-[#4a5ce0] text-white text-sm py-2 rounded-lg transition-colors mb-4">
+        <button className="w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white text-sm py-2 rounded-lg transition-colors mb-4">
           Create account
         </button>
 
@@ -66,9 +66,9 @@ export default function RegisterPage() {
           Continue with Google
         </button>
 
-        <p className="text-center text-xs text-[#6b7a99] mt-6">
+        <p className="text-center text-xs text-[#a0aec0] mt-6">
           Already have an account?{" "}
-          <a href="/login" className="text-[#7b8cff] hover:underline">
+          <a href="/login" className="text-[#7dd3fc] hover:underline">
             Sign in
           </a>
         </p>

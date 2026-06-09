@@ -5,11 +5,11 @@
   --bg-surface: #0f1629;
   --bg-card: #1a2540;
   --border: #1e2d4a;
-  --accent: #5b6ef5;
-  --accent-light: #7b8cff;
+  --accent: #38bdf8;
+  --accent-light: #7dd3fc;
   --text-primary: #e8eaf6;
-  --text-muted: #6b7a99;
-  --text-dim: #3d4f6e;
+  --text-muted: #a0aec0;
+  --text-dim: #6b7a99;
 }
 
 body {
