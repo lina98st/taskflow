@@ -1,76 +1,186 @@
+import Link from "next/link";
+
+const features = [
+  {
+    title: "Secure access",
+    description: "Protected accounts and private user specific task data.",
+    icon: "🔒",
+  },
+  {
+    title: "Simple task management",
+    description: "Create, update, organize and complete your daily tasks.",
+    icon: "✓",
+  },
+  {
+    title: "Clear overview",
+    description: "Track open and completed work from one dashboard.",
+    icon: "◫",
+  },
+];
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0d1117]">
-      {/* Navbar */}
-      <section className="flex items-center justify-between p-8">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 flex rounded-md items-center justify-center text-white text-sm bg-[#38bdf8]">
-            T
-          </div>
-          <div className="font-medium text-[#e8eaf6]">Taskflow</div>
+    <main className="min-h-screen bg-[var(--bg-base)] text-white">
+      <header className="border-b border-[var(--border)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+          <Link
+            href="/"
+            aria-label="Taskflow home"
+            className="flex items-center gap-3 rounded-lg"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent)] font-semibold text-white">
+              T
+            </span>
+
+            <span className="text-lg font-semibold text-white">Taskflow</span>
+          </Link>
+
+          <nav aria-label="Main navigation" className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className="rounded-lg px-3 py-2 text-sm font-semibold text-white transition hover:bg-[var(--bg-card)]"
+            >
+              Sign in
+            </Link>
+
+            <Link
+              href="/register"
+              className="rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)]"
+            >
+              Get started
+            </Link>
+          </nav>
         </div>
-        <div className="flex items-center gap-3">
-          <button className="text-sm text-[#a0aec0]">Sign in</button>
-          <button className="text-sm px-4 rounded-lg py-2 text-white bg-[#38bdf8]">
-            Get started →
-          </button>
-        </div>
-      </section>
-      {/* Hero section */}
-      <section className="p-24 text-center items-center flex flex-col">
-        <div className="rounded-full flex items-center gap-2 px-4 py-1 mb-8 text-[#a0aec0] text-xs border border-[#1e2d4a]">
-          <span className="w-2 h-2 rounded-full bg-green-500"></span>
-          v1.0 · live
-        </div>
-        <h1 className="text-4xl font-medium text-[#e8eaf6] mb-4">
-          Ship faster.
-          <br />
-          <span className="text-[#7dd3fc]">Track everything</span>
-        </h1>
-        <p className="text-sm max-w-md mb-10 text-[#a0aec0]">
-          A focused task dashboard for tracking and managing your daily work.
-          Secure auth, real-time data, zero bloat.
-        </p>
-        <div className="flex items-center gap-3">
-          <button className="bg-[#38bdf8] text-white text-sm px-6 py-3 rounded-lg">
-            Open the dashboard →
-          </button>
-          <button className="border border-[#1e2d4a] text-[#e8eaf6] text-sm px-6 py-3 rounded-lg">
-            Sign in
-          </button>
-        </div>
-      </section>
-      {/* Feature cards */}
-      <section className="grid grid-cols-3 border-t border-[#1e2d4a]">
-        <div className="p-8 border-r border-[#1e2d4a]">
-          <div className="w-8 h-8 rounded-lg bg-[#1a2540] flex items-center justify-center mb-3">
-            🔒
-          </div>
-          <p className="text-sm font-medium text-[#e8eaf6] mb-1">
-            Secure by default
-          </p>
-          <p className="text-xs text-[#a0aec0]">Auth with session handling</p>
-        </div>
-        <div className="p-8 border-r border-[#1e2d4a]">
-          <div className="w-8 h-8 rounded-lg bg-[#1a2540] flex items-center justify-center mb-3">
-            ⚡
-          </div>
-          <p className="text-sm font-medium text-[#e8eaf6] mb-1">
-            Real-time data
-          </p>
-          <p className="text-xs text-[#a0aec0]">Instant task updates</p>
+      </header>
+
+      <section className="mx-auto flex max-w-7xl flex-col items-center px-5 py-20 text-center sm:px-8 sm:py-28 lg:py-36">
+        <div className="mb-8 flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-2 text-sm text-white">
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 rounded-full bg-[var(--warning)]"
+          />
+          Currently in development
         </div>
 
-        <div className="p-8">
-          <div className="w-8 h-8 rounded-lg bg-[#1a2540] flex items-center justify-center mb-3">
-            📊
-          </div>
-          <p className="text-sm font-medium text-[#e8eaf6] mb-1">
-            Clean metrics
-          </p>
-          <p className="text-xs text-[#a0aec0]">Progress at a glance</p>
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Keep your work organized
+          <span className="mt-2 block text-[var(--accent-light)]">
+            without unnecessary complexity
+          </span>
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg">
+          Taskflow gives you one focused place to create, organize and complete
+          your daily tasks.
+        </p>
+
+        <div className="mt-10 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+          <Link
+            href="/register"
+            className="rounded-lg bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)]"
+          >
+            Create account
+          </Link>
+
+          <Link
+            href="/login"
+            className="rounded-lg border border-[var(--border)] px-6 py-3 text-sm font-semibold text-white transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)]"
+          >
+            Sign in
+          </Link>
         </div>
       </section>
-    </div>
+
+      <section
+        aria-labelledby="features-heading"
+        className="border-y border-[var(--border)] bg-[var(--bg-surface)]"
+      >
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+          <div className="mb-10 max-w-2xl">
+            <h2
+              id="features-heading"
+              className="text-2xl font-semibold text-white sm:text-3xl"
+            >
+              Everything you need to stay focused
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-[var(--text-muted)] sm:text-base">
+              A simple workflow for planning tasks and tracking progress.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {features.map((feature) => (
+              <article
+                key={feature.title}
+                className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6"
+              >
+                <div
+                  aria-hidden="true"
+                  className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-surface)] text-lg text-[var(--accent-light)]"
+                >
+                  {feature.icon}
+                </div>
+
+                <h3 className="text-lg font-semibold text-white">
+                  {feature.title}
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
+                  {feature.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+        <div className="overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:p-8">
+          <div className="mb-6 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-semibold text-white">
+                Dashboard preview
+              </p>
+              <p className="mt-1 text-sm text-[var(--text-muted)]">
+                Your work at a glance
+              </p>
+            </div>
+
+            <span className="rounded-full bg-[var(--bg-surface)] px-3 py-1 text-xs font-medium text-white">
+              Preview
+            </span>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+              <p className="text-sm font-medium text-white">Total tasks</p>
+              <p className="mt-4 text-3xl font-semibold text-white">12</p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+              <p className="text-sm font-medium text-white">Open</p>
+              <p className="mt-4 text-3xl font-semibold text-[var(--accent-light)]">
+                7
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+              <p className="text-sm font-medium text-white">Done</p>
+              <p className="mt-4 text-3xl font-semibold text-[var(--success)]">
+                5
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-[var(--border)]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p>© 2026 Taskflow</p>
+          <p>Created by Alina Schmidt</p>
+        </div>
+      </footer>
+    </main>
   );
 }
