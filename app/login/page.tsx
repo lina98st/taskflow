@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 export default function LoginPage() {
   return (
@@ -8,16 +9,9 @@ export default function LoginPage() {
         className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6 sm:p-8"
       >
         <div className="mb-8">
-          <Link
-            href="/"
-            className="mb-6 flex w-fit items-center gap-3 rounded-lg"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent)] font-semibold text-white">
-              T
-            </span>
-
-            <span className="text-lg font-semibold text-white">Taskflow</span>
-          </Link>
+          <div className="mb-6">
+            <Logo />
+          </div>
 
           <h1 id="login-heading" className="text-2xl font-semibold text-white">
             Welcome back
