@@ -1,20 +1,22 @@
 import Link from "next/link";
+import { ChartNoAxesCombined, CircleCheckBig, ShieldCheck } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const features = [
   {
     title: "Secure access",
     description: "Protected accounts and private user specific task data.",
-    icon: "🔒",
+    icon: ShieldCheck,
   },
   {
     title: "Simple task management",
     description: "Create, update, organize and complete your daily tasks.",
-    icon: "✓",
+    icon: CircleCheckBig,
   },
   {
     title: "Clear overview",
     description: "Track open and completed work from one dashboard.",
-    icon: "◫",
+    icon: ChartNoAxesCombined,
   },
 ];
 
@@ -23,17 +25,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--bg-base)] text-white">
       <header className="border-b border-[var(--border)]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
-          <Link
-            href="/"
-            aria-label="Taskflow home"
-            className="flex items-center gap-3 rounded-lg"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent)] font-semibold text-white">
-              T
-            </span>
-
-            <span className="text-lg font-semibold text-white">Taskflow</span>
-          </Link>
+          <Logo />
 
           <nav aria-label="Main navigation" className="flex items-center gap-3">
             <Link
@@ -110,27 +102,28 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            {features.map((feature) => (
-              <article
-                key={feature.title}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6"
-              >
-                <div
-                  aria-hidden="true"
-                  className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-surface)] text-lg text-[var(--accent-light)]"
+            {features.map((feature) => {
+              const Icon = feature.icon;
+
+              return (
+                <article
+                  key={feature.title}
+                  className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6"
                 >
-                  {feature.icon}
-                </div>
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--bg-surface)] text-[var(--accent-light)]">
+                    <Icon aria-hidden="true" size={22} strokeWidth={2} />
+                  </div>
 
-                <h3 className="text-lg font-semibold text-white">
-                  {feature.title}
-                </h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {feature.title}
+                  </h3>
 
-                <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
-                  {feature.description}
-                </p>
-              </article>
-            ))}
+                  <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
+                    {feature.description}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

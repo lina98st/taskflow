@@ -1,41 +1,59 @@
+import Link from "next/link";
+import { CirclePlus, LayoutDashboard, ListTodo } from "lucide-react";
+import Logo from "@/components/Logo";
+
+const navigation = [
+  {
+    href: "/dashboard",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    href: "/dashboard/tasks",
+    label: "Tasks",
+    icon: ListTodo,
+  },
+  {
+    href: "/dashboard/tasks/new",
+    label: "New task",
+    icon: CirclePlus,
+  },
+];
+
 export default function DashboardLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <div className="min-h-screen bg-[#0f1629] flex">
-      {/* Sidebar */}
-      <aside className="w-56 bg-[#0d1829] border-r border-[#1e2d4a] min-h-screen flex flex-col p-4">
-        <div className="flex items-center gap-2 mb-8">
-          <div className="w-7 h-7 flex rounded-md items-center justify-center text-white text-sm bg-[#38bdf8]">
-            T
-          </div>
-          <div className="font-medium text-[#e8eaf6]">Taskflow</div>
+    <div className="min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)] lg:flex">
+      <aside className="border-b border-[var(--border)] bg-[var(--bg-surface)] p-4 lg:min-h-screen lg:w-64 lg:border-r lg:border-b-0">
+        <div className="mb-6">
+          <Logo href="/dashboard" />
         </div>
-        <nav className="flex flex-col gap-1">
-          <a
-            href="/dashboard"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#a0aec0] hover:text-[#e8eaf6] hover:bg-[#1a2540]"
-          >
-            Dashboard
-          </a>
-          <a
-            href="/dashboard/tasks"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#a0aec0] hover:text-[#e8eaf6] hover:bg-[#1a2540]"
-          >
-            Tasks
-          </a>
-          <a
-            href="/dashboard/tasks/new"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#a0aec0] hover:text-[#e8eaf6] hover:bg-[#1a2540]"
-          >
-            New task
-          </a>
+
+        <nav aria-label="Dashboard navigation">
+          <ul className="flex gap-2 overflow-x-auto lg:flex-col">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[var(--bg-card)]"
+                  >
+                    <Icon aria-hidden="true" size={18} strokeWidth={2} />
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </aside>
-      {/* Main context */}
-      <main className="flex-1 p-8">{children}</main>
+
+      <main className="min-w-0 flex-1 p-5 sm:p-8 lg:p-10">{children}</main>
     </div>
   );
 }
