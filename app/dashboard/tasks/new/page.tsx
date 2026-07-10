@@ -1,51 +1,74 @@
+import Link from "next/link";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+import Input from "@/components/ui/Input";
+import Label from "@/components/ui/Label";
+import Select from "@/components/ui/Select";
+import Textarea from "@/components/ui/Textarea";
+
 export default function NewTaskPage() {
   return (
-    <div className="max-w-md">
-      <h1 className="text-lg font-medium text-[#e8eaf6] mb-6">New task</h1>
+    <div className="mx-auto max-w-xl">
+      <header className="mb-8">
+        <h1 className="text-2xl font-semibold text-white">New task</h1>
 
-      <div className="mb-4">
-        <label className="text-xs text-[#a0aec0] block mb-2">Title</label>
-        <input
-          type="text"
-          placeholder="Task title..."
-          className="w-full bg-[#1a2540] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#6b7a99] outline-none focus:border-[#38bdf8]"
-        />
-      </div>
+        <p className="mt-2 text-sm text-[var(--text-muted)]">
+          Add a new task to your list
+        </p>
+      </header>
 
-      <div className="mb-4">
-        <label className="text-xs text-[#a0aec0] block mb-2">Description</label>
-        <textarea
-          placeholder="Optional description..."
-          rows={3}
-          className="w-full bg-[#1a2540] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] placeholder-[#6b7a99] outline-none focus:border-[#38bdf8] resize-none"
-        />
-      </div>
+      <Card className="p-6">
+        <form>
+          <div className="mb-5">
+            <Label htmlFor="title">Title</Label>
 
-      <div className="mb-4">
-        <label className="text-xs text-[#a0aec0] block mb-2">Status</label>
-        <select className="w-full bg-[#1a2540] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] outline-none focus:border-[#38bdf8]">
-          <option>Todo</option>
-          <option>In progress</option>
-          <option>Done</option>
-        </select>
-      </div>
+            <Input
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Enter task title"
+              required
+            />
+          </div>
 
-      <div className="mb-6">
-        <label className="text-xs text-[#a0aec0] block mb-2">Due date</label>
-        <input
-          type="date"
-          className="w-full bg-[#1a2540] border border-[#1e2d4a] rounded-lg px-3 py-2 text-sm text-[#e8eaf6] outline-none focus:border-[#38bdf8]"
-        />
-      </div>
+          <div className="mb-5">
+            <Label htmlFor="description">Description</Label>
 
-      <div className="flex gap-3">
-        <button className="flex-1 bg-[#38bdf8] hover:bg-[#0ea5e9] text-white text-sm py-2 rounded-lg transition-colors">
-          Create task
-        </button>
-        <button className="px-4 py-2 border border-[#1e2d4a] text-[#a0aec0] text-sm rounded-lg hover:border-[#2a3a5c] transition-colors">
-          Cancel
-        </button>
-      </div>
+            <Textarea
+              id="description"
+              name="description"
+              rows={4}
+              placeholder="Add an optional description"
+            />
+          </div>
+
+          <div className="mb-5">
+            <Label htmlFor="status">Status</Label>
+
+            <Select id="status" name="status">
+              <option value="todo">Todo</option>
+              <option value="in-progress">In progress</option>
+              <option value="done">Done</option>
+            </Select>
+          </div>
+
+          <div className="mb-7">
+            <Label htmlFor="dueDate">Due date</Label>
+
+            <Input id="dueDate" name="dueDate" type="date" />
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button type="submit" className="flex-1">
+              Create task
+            </Button>
+
+            <Link href="/dashboard/tasks">
+              <Button variant="secondary">Cancel</Button>
+            </Link>
+          </div>
+        </form>
+      </Card>
     </div>
   );
 }
