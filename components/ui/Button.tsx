@@ -25,7 +25,7 @@ export default function Button({
     <button
       type={type}
       className={[
-        "rounded-lg px-4 py-2.5 text-sm font-semibold transition",
+        "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition",
         "focus-visible:outline-none focus-visible:ring-2",
         "focus-visible:ring-[var(--accent-light)] focus-visible:ring-offset-2",
         "focus-visible:ring-offset-[var(--bg-base)]",
