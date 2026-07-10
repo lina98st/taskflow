@@ -1,22 +1,19 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+import Input from "@/components/ui/Input";
 
 export default function RegisterPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[var(--bg-base)] px-4 py-10">
-      <section
-        aria-labelledby="register-heading"
-        className="w-full max-w-md rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6 sm:p-8"
-      >
+      <Card className="w-full max-w-md p-6 sm:p-8">
         <div className="mb-8">
           <div className="mb-6">
             <Logo />
           </div>
 
-          <h1
-            id="register-heading"
-            className="text-2xl font-semibold text-white"
-          >
+          <h1 className="text-2xl font-semibold text-white">
             Create an account
           </h1>
 
@@ -34,14 +31,12 @@ export default function RegisterPage() {
               Name
             </label>
 
-            <input
+            <Input
               id="name"
-              name="name"
               type="text"
               autoComplete="name"
-              required
               placeholder="Your name"
-              className="w-full rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-2.5 text-sm text-white placeholder:text-[var(--text-dim)] outline-none transition focus:border-[var(--accent)]"
+              required
             />
           </div>
 
@@ -53,14 +48,12 @@ export default function RegisterPage() {
               Email
             </label>
 
-            <input
+            <Input
               id="email"
-              name="email"
               type="email"
               autoComplete="email"
-              required
               placeholder="you@example.com"
-              className="w-full rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-2.5 text-sm text-white placeholder:text-[var(--text-dim)] outline-none transition focus:border-[var(--accent)]"
+              required
             />
           </div>
 
@@ -72,43 +65,35 @@ export default function RegisterPage() {
               Password
             </label>
 
-            <input
+            <Input
               id="password"
-              name="password"
               type="password"
               autoComplete="new-password"
-              required
-              minLength={8}
               placeholder="At least 8 characters"
-              className="w-full rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-2.5 text-sm text-white placeholder:text-[var(--text-dim)] outline-none transition focus:border-[var(--accent)]"
+              minLength={8}
+              required
             />
 
             <p className="mt-2 text-xs text-[var(--text-muted)]">
-              Use at least 8 characters
+              Use at least 8 characters.
             </p>
           </div>
 
-          <button
-            type="submit"
-            className="mb-5 w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)]"
-          >
+          <Button type="submit" fullWidth>
             Create account
-          </button>
+          </Button>
         </form>
 
-        <div className="mb-5 flex items-center gap-3" aria-hidden="true">
+        <div className="my-6 flex items-center gap-3">
           <div className="h-px flex-1 bg-[var(--border)]" />
           <span className="text-xs text-[var(--text-muted)]">or</span>
           <div className="h-px flex-1 bg-[var(--border)]" />
         </div>
 
-        <button
-          type="button"
-          className="flex w-full items-center justify-center gap-3 rounded-lg border border-[var(--border)] px-4 py-2.5 text-sm font-semibold text-white transition hover:border-[var(--border-hover)] hover:bg-[var(--bg-surface)]"
-        >
+        <Button variant="secondary" fullWidth>
           <GoogleIcon />
-          Continue with Google
-        </button>
+          <span>Continue with Google</span>
+        </Button>
 
         <p className="mt-6 text-center text-sm text-[var(--text-muted)]">
           Already have an account?{" "}
@@ -119,7 +104,7 @@ export default function RegisterPage() {
             Sign in
           </Link>
         </p>
-      </section>
+      </Card>
     </main>
   );
 }
