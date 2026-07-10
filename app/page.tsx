@@ -46,14 +46,6 @@ export default function Home() {
       </header>
 
       <section className="mx-auto flex max-w-7xl flex-col items-center px-5 py-20 text-center sm:px-8 sm:py-28 lg:py-36">
-        <div className="mb-8 flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-2 text-sm text-white">
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 rounded-full bg-[var(--warning)]"
-          />
-          Currently in development
-        </div>
-
         <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Keep your work organized
           <span className="mt-2 block text-[var(--accent-light)]">
@@ -135,6 +127,7 @@ export default function Home() {
               <p className="text-sm font-semibold text-white">
                 Dashboard preview
               </p>
+
               <p className="mt-1 text-sm text-[var(--text-muted)]">
                 Your work at a glance
               </p>
