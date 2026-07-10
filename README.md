@@ -1,27 +1,33 @@
-# taskflow
+# Taskflow
 
-A task management dashboard for tracking and managing your daily work. Users can sign up, log in and manage their tasks including creating, editing, deleting and filtering by status.
+A modern task management application built with Next.js for organizing, tracking and completing daily work.
 
-> Currently in development — launching Q3 2026
+Taskflow is currently under active development and serves as both a learning project and a portfolio application.
+
+> Currently in development
 
 ---
 
 ## Tech Stack
 
-**Frontend**
-- Next.js 15 (App Router)
+### Frontend
+
+- Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS
 
-**Backend**
-- Next.js API Routes
+### Backend
+
+- Next.js Route Handlers
 - Prisma ORM
 - PostgreSQL
 
-**Auth**
+### Authentication
+
 - Auth.js
 
-**Testing**
+### Testing
+
 - Jest
 - React Testing Library
 
@@ -29,25 +35,41 @@ A task management dashboard for tracking and managing your daily work. Users can
 
 ## Features
 
-- User authentication with protected routes
-- User-specific data — every user only sees their own tasks
+### Current
+
+- Responsive dashboard
+- Modern UI built with reusable components
+- User registration page
+- User login page
+- Dashboard layout
+- Task overview
+- Create task form
+
+### Planned
+
+- User authentication
+- Protected routes
+- User specific task management
 - Create, edit and delete tasks
-- Task status: `todo`, `in progress`, `done`
-- Filter tasks by status
-- Sort tasks by date
-- Dashboard overview with task stats
+- Task status management
+- Filtering and sorting
+- Dashboard statistics
+- Deployment with Vercel and Neon
 
 ---
 
-## Roadmap
+## Project Status
 
 - [x] Project setup
-- [ ] Database schema with Prisma
-- [ ] Authentication with Auth.js
-- [ ] Task CRUD endpoints
-- [ ] Dashboard UI
-- [ ] Task list with filters
-- [ ] Deploy to Vercel + Neon
+- [x] Landing page
+- [x] Reusable UI component library
+- [x] Dashboard interface
+- [x] Authentication screens
+- [ ] Database integration
+- [ ] Authentication
+- [ ] Task management
+- [ ] Testing
+- [ ] Deployment
 
 ---
 
@@ -55,34 +77,38 @@ A task management dashboard for tracking and managing your daily work. Users can
 
 ### Prerequisites
 
-- Node.js v20+
-- PostgreSQL (local or via [Neon](https://neon.tech))
+- Node.js 20 or newer
+- PostgreSQL (local or Neon)
 
 ### Installation
 
-​```bash
+```bash
 git clone https://github.com/lina98st/taskflow.git
 cd taskflow
 npm install
-​```
+```
 
 ### Environment Variables
 
-Create a `.env.local` file in the root:
+Create a `.env` file in the project root.
 
-​```env
-DATABASE_URL="postgresql://localhost:5432/taskflow"
-NEXTAUTH_SECRET="your-secret"
+```env
+DATABASE_URL=""
+NEXTAUTH_SECRET=""
 NEXTAUTH_URL="http://localhost:3000"
-​```
+```
 
-### Run locally
+### Development
 
-​```bash
-npm run dev
-​```
+Start the development server and open the local address shown in your terminal.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
+
+## AI Usage
+
+This project is designed, implemented and maintained by me.
+
+AI is used as a development assistant for brainstorming, refactoring, code reviews and improving development speed. All generated code is reviewed, adapted and integrated manually before becoming part of the project.
 
 ---
 
