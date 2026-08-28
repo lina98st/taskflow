@@ -3,6 +3,7 @@ import Logo from "@/components/Logo";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
+import { registerUser } from "./actions";
 
 export default function RegisterPage() {
   return (
@@ -22,7 +23,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <form>
+        <form action={registerUser}>
           <div className="mb-5">
             <label
               htmlFor="name"
@@ -33,6 +34,7 @@ export default function RegisterPage() {
 
             <Input
               id="name"
+              name="name"
               type="text"
               autoComplete="name"
               placeholder="Your name"
@@ -50,6 +52,7 @@ export default function RegisterPage() {
 
             <Input
               id="email"
+              name="email"
               type="email"
               autoComplete="email"
               placeholder="you@example.com"
@@ -67,6 +70,7 @@ export default function RegisterPage() {
 
             <Input
               id="password"
+              name="password"
               type="password"
               autoComplete="new-password"
               placeholder="At least 8 characters"
