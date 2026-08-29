@@ -4,7 +4,12 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Card from "@/components/ui/Card";
 
-export default function LoginPage() {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ registered?: string }>;
+}) {
+  const { registered } = await searchParams;
   return (
     <main className="flex min-h-screen items-center justify-center bg-[var(--bg-base)] px-4 py-10">
       <Card className="w-full max-w-md p-6 sm:p-8">
@@ -19,6 +24,12 @@ export default function LoginPage() {
             Sign in to your account
           </p>
         </div>
+
+        {registered === "true" && (
+          <div className="mb-6 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-300">
+            Account created successfully. You can now sign in.
+          </div>
+        )}
 
         <form>
           <div className="mb-5">
