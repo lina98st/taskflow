@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { CirclePlus, LayoutDashboard, ListTodo } from "lucide-react";
 import Logo from "@/components/Logo";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 const navigation = [
   {
@@ -20,11 +22,17 @@ const navigation = [
   },
 ];
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
+  if (!session?.user) {
+    redirect("/login");
+  }
+
   return (
     <div className="min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)] lg:flex">
       <aside className="border-b border-[var(--border)] bg-[var(--bg-surface)] p-4 lg:min-h-screen lg:w-64 lg:border-r lg:border-b-0">
