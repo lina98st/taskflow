@@ -3,6 +3,7 @@ import Logo from "@/components/Logo";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Card from "@/components/ui/Card";
+import { loginUser } from "./actions";
 
 export default async function LoginPage({
   searchParams,
@@ -31,7 +32,7 @@ export default async function LoginPage({
           </div>
         )}
 
-        <form>
+        <form action={loginUser}>
           <div className="mb-5">
             <label
               htmlFor="email"
@@ -42,6 +43,7 @@ export default async function LoginPage({
 
             <Input
               id="email"
+              name="email"
               type="email"
               autoComplete="email"
               placeholder="you@example.com"
@@ -59,6 +61,7 @@ export default async function LoginPage({
 
             <Input
               id="password"
+              name="password"
               type="password"
               autoComplete="current-password"
               placeholder="Enter your password"
