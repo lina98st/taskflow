@@ -1,6 +1,7 @@
 "use server";
 
 import bcrypt from "bcryptjs";
+import { redirect } from "next/navigation";
 import prisma from "@/lib/prisma";
 
 export async function registerUser(formData: FormData) {
@@ -37,4 +38,6 @@ export async function registerUser(formData: FormData) {
       password: hashedPassword,
     },
   });
+
+  redirect("/login?registered=true");
 }
