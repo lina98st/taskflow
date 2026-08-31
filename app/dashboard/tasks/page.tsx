@@ -5,6 +5,7 @@ import Card from "@/components/ui/Card";
 import Select from "@/components/ui/Select";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
+import { deleteTask } from "./actions";
 
 export default async function TasksPage() {
   const session = await auth();
@@ -100,7 +101,12 @@ export default async function TasksPage() {
 
                 <div className="flex gap-2">
                   <Button variant="secondary">Edit</Button>
-                  <Button variant="danger">Delete</Button>
+
+                  <form action={deleteTask.bind(null, task.id)}>
+                    <Button type="submit" variant="danger">
+                      Delete
+                    </Button>
+                  </form>
                 </div>
               </div>
             </Card>
