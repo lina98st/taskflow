@@ -100,7 +100,9 @@ export default async function TasksPage() {
                 )}
 
                 <div className="flex gap-2">
-                  <Button variant="secondary">Edit</Button>
+                  <Link href={`/dashboard/tasks/${task.id}/edit`}>
+                    <Button variant="secondary">Edit</Button>
+                  </Link>
 
                   <form action={deleteTask.bind(null, task.id)}>
                     <Button type="submit" variant="danger">
