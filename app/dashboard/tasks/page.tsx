@@ -7,7 +7,12 @@ import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { deleteTask } from "./actions";
 
-export default async function TasksPage() {
+export default async function TasksPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ filter?: string }>;
+}) {
+  const { filter } = await searchParams;
   const session = await auth();
 
   if (!session?.user?.email) {
@@ -28,6 +33,18 @@ export default async function TasksPage() {
   });
 
   const tasks = user?.tasks ?? [];
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "open") {
+      return task.status === "TODO" || task.status === "IN_PROGRESS";
+    }
+
+    if (filter === "done") {
+      return task.status === "DONE";
+    }
+
+    return true;
+  });
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -52,9 +69,21 @@ export default async function TasksPage() {
         className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center"
       >
         <div className="flex gap-2">
-          <Button>All</Button>
-          <Button variant="secondary">Open</Button>
-          <Button variant="secondary">Done</Button>
+          <Link href="/dashboard/tasks">
+            <Button variant={!filter ? "primary" : "secondary"}>All</Button>
+          </Link>
+
+          <Link href="/dashboard/tasks?filter=open">
+            <Button variant={filter === "open" ? "primary" : "secondary"}>
+              Open
+            </Button>
+          </Link>
+
+          <Link href="/dashboard/tasks?filter=done">
+            <Button variant={filter === "done" ? "primary" : "secondary"}>
+              Done
+            </Button>
+          </Link>
         </div>
 
         <div className="sm:ml-auto sm:w-44">
@@ -66,14 +95,14 @@ export default async function TasksPage() {
       </section>
 
       <section aria-label="Task list" className="space-y-3">
-        {tasks.length === 0 ? (
+        {filteredTasks.length === 0 ? (
           <Card className="p-5">
             <p className="text-sm text-[var(--text-muted)]">
               No tasks yet. Create your first task.
             </p>
           </Card>
         ) : (
-          tasks.map((task) => (
+          filteredTasks.map((task) => (
             <Card key={task.id}>
               <div className="flex flex-col gap-3 p-5 sm:flex-row sm:items-center">
                 <span
