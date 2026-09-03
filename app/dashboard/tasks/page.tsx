@@ -2,17 +2,17 @@ import Link from "next/link";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import Select from "@/components/ui/Select";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { deleteTask } from "./actions";
+import SortSelect from "./SortSelect";
 
 export default async function TasksPage({
   searchParams,
 }: {
-  searchParams: Promise<{ filter?: string }>;
+  searchParams: Promise<{ filter?: string; sort?: string }>;
 }) {
-  const { filter } = await searchParams;
+  const { filter, sort } = await searchParams;
   const session = await auth();
 
   if (!session?.user?.email) {
@@ -44,6 +44,23 @@ export default async function TasksPage({
     }
 
     return true;
+  });
+
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    if (sort === "status") {
+      const order = {
+        TODO: 0,
+        IN_PROGRESS: 1,
+        DONE: 2,
+      };
+
+      return order[a.status] - order[b.status];
+    }
+
+    const aDate = a.dueDate?.getTime() ?? Number.MAX_SAFE_INTEGER;
+    const bDate = b.dueDate?.getTime() ?? Number.MAX_SAFE_INTEGER;
+
+    return aDate - bDate;
   });
 
   return (
@@ -87,22 +104,19 @@ export default async function TasksPage({
         </div>
 
         <div className="sm:ml-auto sm:w-44">
-          <Select aria-label="Sort tasks">
-            <option>Sort by date</option>
-            <option>Sort by status</option>
-          </Select>
+          <SortSelect filter={filter} sort={sort} />
         </div>
       </section>
 
       <section aria-label="Task list" className="space-y-3">
-        {filteredTasks.length === 0 ? (
+        {sortedTasks.length === 0 ? (
           <Card className="p-5">
             <p className="text-sm text-[var(--text-muted)]">
               No tasks yet. Create your first task.
             </p>
           </Card>
         ) : (
-          filteredTasks.map((task) => (
+          sortedTasks.map((task) => (
             <Card key={task.id}>
               <div className="flex flex-col gap-3 p-5 sm:flex-row sm:items-center">
                 <span
