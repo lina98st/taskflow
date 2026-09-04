@@ -18,7 +18,7 @@ Taskflow is currently under active development and serves as both a learning pro
 
 ### Backend
 
-- Next.js Route Handlers
+- Next.js Server Actions
 - Prisma ORM
 - PostgreSQL
 
@@ -38,22 +38,24 @@ Taskflow is currently under active development and serves as both a learning pro
 ### Current
 
 - Responsive dashboard
-- Modern UI built with reusable components
-- User registration page
-- User login page
-- Dashboard layout
-- Task overview
-- Create task form
-
-### Planned
-
-- User authentication
-- Protected routes
+- Reusable UI components
+- User registration and login
+- Authentication with Auth.js
+- Protected dashboard routes
+- PostgreSQL database integration with Prisma
 - User specific task management
 - Create, edit and delete tasks
 - Task status management
-- Filtering and sorting
+- Due dates
+- Task filtering by status
+- Task sorting by due date and status
 - Dashboard statistics
+- Recent tasks overview
+
+### Planned
+
+- Form validation and improved error handling
+- Testing with Jest and React Testing Library
 - Deployment with Vercel and Neon
 
 ---
@@ -64,10 +66,15 @@ Taskflow is currently under active development and serves as both a learning pro
 - [x] Landing page
 - [x] Reusable UI component library
 - [x] Dashboard interface
-- [x] Authentication screens
-- [ ] Database integration
-- [ ] Authentication
-- [ ] Task management
+- [x] Database integration
+- [x] Authentication
+- [x] Protected routes
+- [x] Task creation
+- [x] Task editing
+- [x] Task deletion
+- [x] Task filtering
+- [x] Task sorting
+- [x] Dashboard statistics
 - [ ] Testing
 - [ ] Deployment
 
