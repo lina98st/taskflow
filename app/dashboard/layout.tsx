@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { CirclePlus, LayoutDashboard, ListTodo } from "lucide-react";
+import { CirclePlus, LayoutDashboard, ListTodo, LogOut } from "lucide-react";
 import Logo from "@/components/Logo";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { logout } from "./actions";
 
 const navigation = [
   {
@@ -59,6 +60,16 @@ export default async function DashboardLayout({
             })}
           </ul>
         </nav>
+
+        <form action={logout} className="mt-6">
+          <button
+            type="submit"
+            className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-[var(--text-muted)] transition hover:bg-[var(--bg-card)] hover:text-white"
+          >
+            <LogOut aria-hidden="true" size={18} strokeWidth={2} />
+            Log out
+          </button>
+        </form>
       </aside>
 
       <main className="min-w-0 flex-1 p-5 sm:p-8 lg:p-10">{children}</main>
